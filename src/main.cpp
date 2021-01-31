@@ -1,4 +1,4 @@
-#include "MainWindow.h"
+#include "PoolEditor.h"
 #include "flux.h"
 
 #include <QApplication>
@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName("Flux");
     QCoreApplication::setApplicationVersion(FLUX_VERSION_STR);
 
-    MainWindow w;
+    PoolEditor w;
     w.show();
 
     return app.exec();
