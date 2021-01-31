@@ -21,7 +21,6 @@ add_subdirectory(
 )
 
 qt_add_executable(flux
-    src/MainWindow.cpp include/MainWindow.h
     src/PoolEditor.cpp include/PoolEditor.h src/PoolEditor.ui
     src/main.cpp
     include/flux.h
