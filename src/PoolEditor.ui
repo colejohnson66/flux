@@ -2,36 +2,33 @@
 <ui version="4.0">
  <class>PoolEditor</class>
  <widget class="QMainWindow" name="PoolEditor">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1280</width>
+    <height>800</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1100</width>
+    <height>600</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Flux - Pool Editor</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="layout">
-    <property name="leftMargin">
-     <number>10</number>
-    </property>
-    <property name="topMargin">
-     <number>10</number>
-    </property>
-    <property name="rightMargin">
-     <number>10</number>
-    </property>
-    <property name="bottomMargin">
-     <number>10</number>
-    </property>
     <item>
      <widget class="QTabWidget" name="tabs">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-        <horstretch>3</horstretch>
+        <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
@@ -42,55 +39,362 @@
        <attribute name="title">
         <string>Parts</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
+       <layout class="QHBoxLayout" name="partsTabLayout">
         <item>
-         <layout class="QHBoxLayout" name="partsTabButtons">
+         <layout class="QVBoxLayout" name="partsLeft">
           <item>
-           <widget class="QPushButton" name="pushButton">
-            <property name="text">
-             <string>PushButton</string>
-            </property>
-           </widget>
+           <layout class="QHBoxLayout" name="partsButtons">
+            <item>
+             <widget class="QPushButton" name="partsButtonCreate">
+              <property name="text">
+               <string>Create</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="partsButtonEdit">
+              <property name="text">
+               <string>Edit</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="partsButtonDuplicate">
+              <property name="text">
+               <string>Duplicate</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="partsButtonCreateFrom">
+              <property name="text">
+               <string>Create Part From Part</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="partsButtonWizard">
+              <property name="text">
+               <string>Part Wizard</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_2">
-            <property name="text">
-             <string>PushButton</string>
-            </property>
-           </widget>
+           <layout class="QGridLayout" name="partsSearch">
+            <item row="2" column="1">
+             <widget class="QLineEdit" name="partsSearchDescriptionBox"/>
+            </item>
+            <item row="2" column="0" alignment="Qt::AlignRight">
+             <widget class="QLabel" name="partsSearchDescriptionLabel">
+              <property name="text">
+               <string>Description:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="partsSearchMpnBox"/>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="partsSearchManufacturerBox"/>
+            </item>
+            <item row="0" column="0" alignment="Qt::AlignRight">
+             <widget class="QLabel" name="partsSearchMpnLabel">
+              <property name="toolTip">
+               <string>Manufacturer Part Number</string>
+              </property>
+              <property name="text">
+               <string>MPN:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" alignment="Qt::AlignRight">
+             <widget class="QLabel" name="partsSearchManufacturerLabel">
+              <property name="text">
+               <string>Manufacturer:</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_3">
-            <property name="text">
-             <string>PushButton</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton_4">
-            <property name="text">
-             <string>PushButton</string>
-            </property>
-           </widget>
+           <widget class="QTableWidget" name="partsList"/>
           </item>
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="searchHolder">
+         <layout class="QVBoxLayout" name="partsRight">
           <item>
-           <widget class="QLabel" name="searchLabel">
-            <property name="text">
-             <string>Search:</string>
-            </property>
-           </widget>
+           <layout class="QGridLayout" name="partsInfo" columnstretch="1,3,1,3,1,3">
+            <item row="0" column="0" alignment="Qt::AlignRight">
+             <widget class="QLabel" name="partsInfoMpnLabel">
+              <property name="toolTip">
+               <string>Manufacturer Part Number</string>
+              </property>
+              <property name="text">
+               <string>MPN:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="4" alignment="Qt::AlignRight">
+             <widget class="QLabel" name="partsInfoValueLabel">
+              <property name="text">
+               <string>Value:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2" alignment="Qt::AlignRight">
+             <widget class="QLabel" name="partsInfoManufacturerLabel">
+              <property name="text">
+               <string>Manufacturer:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2" alignment="Qt::AlignRight">
+             <widget class="QLabel" name="partsInfoDatasheetLabel">
+              <property name="text">
+               <string>DataSheet:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1" alignment="Qt::AlignLeft">
+             <widget class="QLabel" name="partsInfoDescriptionValue">
+              <property name="text">
+               <string>???</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="3" alignment="Qt::AlignLeft">
+             <widget class="QLabel" name="partsInfoManufacturerValue">
+              <property name="text">
+               <string>???</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1" alignment="Qt::AlignLeft">
+             <widget class="QLabel" name="partsInfoMpnValue">
+              <property name="text">
+               <string>???</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="5" alignment="Qt::AlignLeft">
+             <widget class="QLabel" name="partsInfoValueValue">
+              <property name="text">
+               <string>???</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="5" alignment="Qt::AlignLeft">
+             <widget class="QLabel" name="partsInfoEntityValue">
+              <property name="text">
+               <string>???</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" alignment="Qt::AlignRight">
+             <widget class="QLabel" name="partsInfoDescriptionLabel">
+              <property name="text">
+               <string>Description</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="4" alignment="Qt::AlignRight">
+             <widget class="QLabel" name="partsInfoEntityLabel">
+              <property name="text">
+               <string>Entity:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="3" alignment="Qt::AlignLeft">
+             <widget class="QLabel" name="partsInfoDatasheetValue">
+              <property name="text">
+               <string>???</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item>
-           <widget class="QLineEdit" name="searchBox"/>
+           <layout class="QGridLayout" name="partsDisplay" columnstretch="1,1">
+            <item row="0" column="0">
+             <layout class="QHBoxLayout" name="partsSchematicAbove">
+              <item>
+               <widget class="QLabel" name="partsSchematicGateLabel">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Gate</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="partsSchematicGateSelect">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>0</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="partsSchematicGateGo">
+                <property name="minimumSize">
+                 <size>
+                  <width>30</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>50</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>&gt;</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="partsSchematicSpacer">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Maximum</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLabel" name="partsSchematicSymbolLabel">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Symbol</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="partsSchematicSymbolSelect">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>0</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="partsSchematicSymbolGo">
+                <property name="minimumSize">
+                 <size>
+                  <width>30</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>50</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>&gt;</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="0" column="1">
+             <layout class="QHBoxLayout" name="partsPcbAbove">
+              <item>
+               <widget class="QLabel" name="partsPcbPackageLabel">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Package</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="partsPcbPackageSelect">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>0</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="partsPcbPackageGo">
+                <property name="minimumSize">
+                 <size>
+                  <width>30</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>50</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>&gt;</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="1" column="0">
+             <widget class="QGraphicsView" name="partsSchematicDisplay"/>
+            </item>
+            <item row="1" column="1">
+             <widget class="QGraphicsView" name="partsPcbDisplay"/>
+            </item>
+           </layout>
           </item>
          </layout>
-        </item>
-        <item>
-         <widget class="QTableWidget" name="partsTable"/>
         </item>
        </layout>
       </widget>
@@ -98,26 +402,748 @@
        <attribute name="title">
         <string>Entities</string>
        </attribute>
+       <layout class="QHBoxLayout" name="entitiesTabLayout">
+        <item>
+         <layout class="QVBoxLayout" name="entitiesLeft">
+          <item>
+           <layout class="QHBoxLayout" name="entitiesButtons">
+            <item>
+             <widget class="QPushButton" name="entitiesButtonCreate">
+              <property name="text">
+               <string>Create</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="entitiesButtonEdit">
+              <property name="text">
+               <string>Edit</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="entitiesButtonDuplicate">
+              <property name="text">
+               <string>Duplicate</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="entitiesButtonImport">
+              <property name="text">
+               <string>Import From Kicad</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="entitiesSearch">
+            <item row="0" column="0" alignment="Qt::AlignRight">
+             <widget class="QLabel" name="entitiesSearchNameLabel">
+              <property name="text">
+               <string>Name:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="entitiesSearchNameBox"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QTableWidget" name="entitiesList"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="entitiesDisplay">
+          <item>
+           <layout class="QHBoxLayout" name="entitiesEntityAbove">
+            <item>
+             <widget class="QLabel" name="entitiesEntityGateLabel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Gate</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="entitiesEntityGateSelect">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>0</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="entitiesEntityGateGo">
+              <property name="minimumSize">
+               <size>
+                <width>30</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="entitiesEntitySpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="entitiesEntitySymbolLabel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Symbol</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="entitiesEntitySymbolSelect">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>0</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="entitiesEntitySymbolGo">
+              <property name="minimumSize">
+               <size>
+                <width>30</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>&gt;</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QGraphicsView" name="entitiesEntityDisplay"/>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="unitsTab">
        <attribute name="title">
         <string>Units</string>
        </attribute>
+       <layout class="QHBoxLayout" name="unitsTabLayout">
+        <item>
+         <layout class="QVBoxLayout" name="unitsLeft">
+          <item>
+           <layout class="QHBoxLayout" name="unitsButtons">
+            <item>
+             <widget class="QPushButton" name="unitsButtonCreate">
+              <property name="text">
+               <string>Create</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="unitsButtonEdit">
+              <property name="text">
+               <string>Edit</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="unitsButtonDuplicate">
+              <property name="text">
+               <string>Duplicate</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="unitsButtonCreateSymbol">
+              <property name="text">
+               <string>Create Symbol</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="unitsButtonCreateEntity">
+              <property name="text">
+               <string>Create Entity</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="unitsSearch">
+            <item row="0" column="0" alignment="Qt::AlignRight">
+             <widget class="QLabel" name="unitsSearchNameLabel">
+              <property name="text">
+               <string>Name:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="unitsSearchNameBox"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QTableWidget" name="unitsList"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="unitsDisplay">
+          <item>
+           <layout class="QHBoxLayout" name="unitsUnitAbove">
+            <item>
+             <widget class="QLabel" name="unitsUnitSymbolLabel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Symbol</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="unitsUnitSymbolSelect">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>0</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="unitsUnitSymbolGo">
+              <property name="minimumSize">
+               <size>
+                <width>30</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>&gt;</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QGraphicsView" name="unitsUnitDisplay"/>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="symbolsTab">
        <attribute name="title">
         <string>Symbols</string>
        </attribute>
+       <layout class="QHBoxLayout" name="symbolsTabLayout">
+        <item>
+         <layout class="QVBoxLayout" name="symbolsLeft">
+          <item>
+           <layout class="QHBoxLayout" name="symbolsButtons">
+            <item>
+             <widget class="QPushButton" name="symbolsButtonCreate">
+              <property name="text">
+               <string>Create</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="symbolsButtonEdit">
+              <property name="text">
+               <string>Edit</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="symbolsButtonDuplicate">
+              <property name="text">
+               <string>Duplicate</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="symbolsSearch">
+            <item row="0" column="0" alignment="Qt::AlignRight">
+             <widget class="QLabel" name="symbolsSearchNameLabel">
+              <property name="text">
+               <string>Name:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="symbolsSearchNameBox"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QTableWidget" name="symbolsList"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="symbolsDisplay">
+          <item>
+           <layout class="QHBoxLayout" name="symbolsSymbolAbove">
+            <item>
+             <widget class="QPushButton" name="symbolsSymbolButtonNormal">
+              <property name="text">
+               <string>Normal</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="symbolsSymbolButtonMirrored">
+              <property name="text">
+               <string>Mirrored</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="symbolsSymbolSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="symbolsSymbolButton0">
+              <property name="minimumSize">
+               <size>
+                <width>30</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>0°</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="symbolsSymbolButton90">
+              <property name="minimumSize">
+               <size>
+                <width>30</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>90°</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="symbolsSymbolButton180">
+              <property name="minimumSize">
+               <size>
+                <width>30</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>180°</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="symbolsSymbolButton270">
+              <property name="minimumSize">
+               <size>
+                <width>30</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>270°</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="symbolsSymbolSpacer2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item alignment="Qt::AlignRight">
+             <widget class="QLabel" name="symbolsSymbolUnitLabel">
+              <property name="text">
+               <string>Unit:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="symbolsSymbolUnitValue">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>???</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QGraphicsView" name="symbolsSymbolDisplay"/>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="packagesTab">
        <attribute name="title">
         <string>Packages</string>
        </attribute>
+       <layout class="QHBoxLayout" name="packagesTabLayout">
+        <item>
+         <layout class="QVBoxLayout" name="packagesLeft">
+          <item>
+           <layout class="QHBoxLayout" name="packagesButtons">
+            <item>
+             <widget class="QPushButton" name="packagesButtonCreate">
+              <property name="text">
+               <string>Create</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="packagesButtonEdit">
+              <property name="text">
+               <string>Edit</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="packagesButtonDuplicate">
+              <property name="text">
+               <string>Duplicate</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="packagesButtonCreatePadstack">
+              <property name="text">
+               <string>Create Padstack</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="packagesSearch">
+            <item row="0" column="0" alignment="Qt::AlignRight">
+             <widget class="QLabel" name="packagesSearchNameLabel">
+              <property name="text">
+               <string>Name:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="packagesSearchNameBox"/>
+            </item>
+            <item row="1" column="0" alignment="Qt::AlignRight">
+             <widget class="QLabel" name="packagesSearchManufacturerLabel">
+              <property name="text">
+               <string>Manufacturer:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="packagesSearchManufacturerBox"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QTableWidget" name="packagesList"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGraphicsView" name="packagesPackageDisplay"/>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="padstacksTab">
        <attribute name="title">
         <string>Padstacks</string>
        </attribute>
+       <layout class="QHBoxLayout" name="padstacksTabLayout">
+        <item>
+         <layout class="QVBoxLayout" name="padstacksLeft">
+          <item>
+           <layout class="QHBoxLayout" name="padstacksButtons">
+            <item>
+             <widget class="QPushButton" name="padstacksButtonCreate">
+              <property name="text">
+               <string>Create</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="padstacksButtonEdit">
+              <property name="text">
+               <string>Edit</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="padstacksButtonDuplicate">
+              <property name="text">
+               <string>Duplicate</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="padstacksSearch">
+            <item row="0" column="0" alignment="Qt::AlignRight">
+             <widget class="QLabel" name="padstacksSearchNameLabel">
+              <property name="text">
+               <string>Name:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="padstacksSearchNameBox"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QTableWidget" name="padstacksList"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGraphicsView" name="padstacksPadstackDisplay"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="framesTab">
+       <attribute name="title">
+        <string>Frames</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="framesTabLayout">
+        <item>
+         <layout class="QVBoxLayout" name="framesLeft">
+          <item>
+           <layout class="QHBoxLayout" name="framesButtons">
+            <item>
+             <widget class="QPushButton" name="framesButtonCreate">
+              <property name="text">
+               <string>Create</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="framesButtonEdit">
+              <property name="text">
+               <string>Edit</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="framesButtonDuplicate">
+              <property name="text">
+               <string>Duplicate</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="framesSearch">
+            <item row="0" column="0" alignment="Qt::AlignRight">
+             <widget class="QLabel" name="framesSearchNameLabel">
+              <property name="text">
+               <string>Name:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="framesSearchNameBox"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QTableWidget" name="framesList"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGraphicsView" name="framesFrameDisplay"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="decalsTab">
+       <attribute name="title">
+        <string>Decals</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="decalsTabLayout">
+        <item>
+         <layout class="QVBoxLayout" name="decalsLeft">
+          <item>
+           <layout class="QHBoxLayout" name="decalsButtons">
+            <item>
+             <widget class="QPushButton" name="decalsButtonCreate">
+              <property name="text">
+               <string>Create</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="decalsButtonEdit">
+              <property name="text">
+               <string>Edit</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="decalsButtonDuplicate">
+              <property name="text">
+               <string>Duplicate</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="decalsSearch">
+            <item row="0" column="0" alignment="Qt::AlignRight">
+             <widget class="QLabel" name="decalsSearchNameLabel">
+              <property name="text">
+               <string>Name:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="decalsSearchNameBox"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QTableWidget" name="decalsList"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGraphicsView" name="decalsDecalDisplay"/>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="settingsTab">
        <attribute name="title">
@@ -126,32 +1152,14 @@
       </widget>
      </widget>
     </item>
-    <item>
-     <widget class="QGraphicsView" name="preview">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-        <horstretch>1</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>400</width>
-        <height>0</height>
-       </size>
-      </property>
-     </widget>
-    </item>
    </layout>
-   <zorder>preview</zorder>
-   <zorder>tabs</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>1280</width>
      <height>23</height>
     </rect>
    </property>
